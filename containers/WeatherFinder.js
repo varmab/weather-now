@@ -31,7 +31,7 @@ export default class WeatherFinder extends React.Component {
             alignItems: 'center'
           }}>
             <View style={{width: 320, height: 50, paddingTop: 100, alignItems:"center", justifyContent:"center"}}>
-              <Text style={{ fontSize:40, fontWeight:"bold"}}>Weather Now</Text>
+              <Text style={{ fontSize:25, fontWeight:"bold"}}>Weather Now</Text>
             </View>
             <View style={{width: 320, height: 200, paddingTop: 50}} >
               <Zipcode  onZipCodeSelected={this.onZipCodeSelected}/>

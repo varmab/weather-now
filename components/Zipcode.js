@@ -61,7 +61,7 @@ class Zipcode extends Component {
 			          keyboardType = 'numeric'
 			          onChangeText={(text) => this.setState({zipCode:text})}
 			        />
-		           <Button style={{fontSize:40}} title='Go' onPress={()=>this.onSubmit()}/>
+		           <Button style={{fontSize:40,marginLeft:30}} title='Go' onPress={()=>this.onSubmit()}/>
         		</View>
 			)
 		}
