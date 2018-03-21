@@ -17,6 +17,7 @@ class Weather extends Component{
 		this.state={
 			zipCode:props.zipCode,
 			currentWeather:{
+				area:'',
 				description:'',
 				temparature:''
 			},
@@ -38,7 +39,9 @@ class Weather extends Component{
 
 	getWeatherInfo(zipCode){
 		console.log("Getting weather for new zipcode:" + zipCode)
-		fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=6644e680d2025e3820e93d0f13adb2ff`)
+		let url=`http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=6644e680d2025e3820e93d0f13adb2ff`;
+		console.log(url)
+		fetch(url)
 		.then(response=>response.json())
 		.then(weatherInfo=>{
 			console.log("Weather for new zipcode:" + zipCode + " is  " + JSON.stringify(weatherInfo))
@@ -47,6 +50,7 @@ class Weather extends Component{
 				this.setState({
 		          showSpinner:false,
 		          currentWeather : {
+		          	area:weatherInfo.name,
 		          	description:weatherInfo.weather[0].description,
 					temparature:tempFarnheit
 		          }
@@ -54,17 +58,26 @@ class Weather extends Component{
 			}
 		})
 		.catch((err)=>{
-			console.log("failed to get weather")
+			console.log("failed to get weather" + JSON.stringify(err))
 		})
 	}
 
 	render(){
 		return (
-			<View style={{marginTop:30}}>
-	            <Text style={styles.welcome}>
+			<View style={{justifyContent:"center",alignItems:"center"}}>
+				<Text style={{fontSize:30}}>
+	              {this.state.currentWeather.area}
+	            </Text>
+	            <Text style={{fontSize:25,paddingTop:20}}>
+	              Current Condition
+	            </Text>
+	            <Text style={{fontSize:20}}>
 	              {this.state.currentWeather.description}
 	            </Text>
-	            <Text style={styles.welcome}>
+	             <Text style={{fontSize:25,paddingTop:20}}>
+	              Temparature
+	            </Text>
+	            <Text style={{fontSize:20}}>
 	              {this.state.currentWeather.temparature}°F
 	            </Text>
           </View>

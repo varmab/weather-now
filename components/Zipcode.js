@@ -4,6 +4,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  TextInput,
   Button,
   Alert,
   Keyboard,
@@ -52,17 +53,15 @@ class Zipcode extends Component {
 		if(this.state.zipCode != null){
 			console.log("rendering zipcode")
 			return(
-				<View style={styles.card2}>
-		          <Sae
-		            style={styles.input}
-		            label={'Enter Zipcode'}
-		            onChangeText={(text) => { this.setState({zipCode: text}) }}
-		            inputStyle={{ color: 'black' }}
-		            iconClass={FontAwesomeIcon}
-		            iconName={'pencil'}
-            		iconColor={'black'}
-		          />
-		          <Button title='Submit' onPress={()=>this.onSubmit()}/>
+				<View style={{flexDirection:'row',alignItems:"center",justifyContent:"center"}}>
+				  <Text style={{fontSize:25}}>Zipcode: </Text>
+				  <TextInput
+				  	  value={this.state.zipCode}
+				  	  style={{width:80,textDecorationStyle:"solid",borderBottomWidth:1,borderBottomColor:"black",fontSize:25}}
+			          keyboardType = 'numeric'
+			          onChangeText={(text) => this.setState({zipCode:text})}
+			        />
+		           <Button style={{fontSize:40}} title='Go' onPress={()=>this.onSubmit()}/>
         		</View>
 			)
 		}

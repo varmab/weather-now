@@ -23,13 +23,14 @@ const styles = StyleSheet.create({
   },
   card2: {
    width: 200
- },
- buttonView:{
-   marginTop:30
- },
- spinnerView:{
-   height:windowSize.height,width:windowSize.width,position:'absolute',backgroundColor:'transparent',justifyContent:'center'
- },
+  },
+  spinnerView:{
+   height:windowSize.height,
+   width:windowSize.width,
+   position:'absolute',
+   backgroundColor:'transparent',
+   justifyContent:'center'
+  }
 });
 
 module.exports = styles
