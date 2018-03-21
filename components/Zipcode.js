@@ -12,8 +12,6 @@ import {
   View
 } from 'react-native';
 
-import styles from '../styles'
-
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { Sae } from 'react-native-textinput-effects';
 

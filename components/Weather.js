@@ -8,8 +8,6 @@ import {
   View
 } from 'react-native';
 
-import styles from '../styles'
-
 class Weather extends Component{
 	constructor(props){
 		super(props);
@@ -20,8 +18,7 @@ class Weather extends Component{
 				area:'',
 				description:'',
 				temparature:''
-			},
-			showSpinner:false
+			}
 		}
 
 		this.getWeatherInfo=this.getWeatherInfo.bind(this);
@@ -48,7 +45,6 @@ class Weather extends Component{
 			if(weatherInfo){
 				let tempFarnheit=Math.round(9/5 * (weatherInfo.main.temp-273)+32);
 				this.setState({
-		          showSpinner:false,
 		          currentWeather : {
 		          	area:weatherInfo.name,
 		          	description:weatherInfo.weather[0].description,
